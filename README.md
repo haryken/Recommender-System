@@ -14,28 +14,23 @@ Tất cả những điều bạn vừa thấy dều có một điểm chung đó
 
 ## Hệ thống gợi ý là gì ?
 
-Về bản chất chúng ta có thể coi một hệ thống gợi ý giống như một người mai mối. Nó dự đoán sở thích của chúng ta và tìm kiếm các đối tượng tiềm năng phù hợp với sở thích đó để gợi ý cho chúng ta. Giả sử bạn là một gã độc thân vui tính, bạn rất thích những cô gái xinh xắn và năng động, hoạt bát. Nhưng thử tưởng tượng mà xem, sức người có hạn và bạn thì hoàn toàn không thể nào biết hết mặt ngang mũi dọc các mỹ nhân trong thiên hạ.
+Nó dự đoán sở thích của chúng ta và tìm kiếm các đối tượng tiềm năng phù hợp với sở thích đó để gợi ý cho chúng ta. Giả sử bạn là một gã độc thân vui tính, bạn rất thích những cô gái xinh xắn và năng động, hoạt bát. Nhưng thử tưởng tượng mà xem, sức người có hạn và bạn thì hoàn toàn không thể nào biết hết mặt ngang mũi dọc các mỹ nhân trong thiên hạ.
 
 Lúc này bạn rất cần đến một hệ gợi ý như thể một bà mối cho bạn vậy. Dễ hiểu hơn một chút rồi phải không, bây giờ chúng ta sẽ trở lại một ví dụ áp dụng trong một lĩnh vực khá gần gũi với dân IT chúng ta đó là thương mại điện tử.
 
 ![image](https://user-images.githubusercontent.com/64195026/114326966-59767300-9b61-11eb-8058-d1e9dd58de04.png)
 
-Hình ảnh trên giúp bạn phần nào hình dung ra vấn đề rồi chứ. Khi bạn mua một sản phẩm, hệ gợi ý sẽ làm công việc là đưa ra các sản phẩm tương tự mà bạn có thể thích mua chúng. Điều này thực sự trở thành một trợ thủ đặc lực cho người tiêu dùng cũng như người bán hàng.
+Khi bạn mua một sản phẩm, hệ gợi ý sẽ làm công việc là đưa ra các sản phẩm tương tự mà bạn có thể thích mua chúng. Điều này thực sự trở thành một trợ thủ đặc lực cho người tiêu dùng cũng như người bán hàng.
 
 Cụ thể cách mà Amazon – trang thương mại điện tử nổi tiếng của thế giới đã làm như sau:
-
-    Quan tâm đến việc khách hàng yêu thích những sản phẩm nào dựa vào dữ liệu trên quá khứ của họ như điểm đánh giá trên từng sản phẩm, thời gian duyệt trên từng sản phẩm, số       lần click vào sản phẩm…
-
-    Từ đó có thể dự đoán được người dùng có thể sẽ thích những sản phẩm nào khác và đưa ra gợi ý phù hợp cho họ
-    
-Cũng khá dễ hiểu phải không nào. Vậy một hệ gợi ý sẽ bao gồm những thành phần cơ bản nào, và làm cách nào để xây dựng một hệ gợi ý.
+Quan tâm đến việc khách hàng yêu thích những sản phẩm nào dựa vào dữ liệu trên quá khứ của họ như điểm đánh giá trên từng sản phẩm, thời gian duyệt trên từng sản phẩm, số       lần click vào sản phẩm… Từ đó có thể dự đoán được người dùng có thể sẽ thích những sản phẩm nào khác và đưa ra gợi ý phù hợp cho họ
 
 ## Các thành phần cơ bản của một hệ gợi ý
 Như chúng ta đã biết, để làm việc hay xây dựng một hệ thống thông tin mới thì chúng ta cần phải định hình được mình sẽ cần những thành phần gì để tạo ra chúng. Đơn giản là những điều vĩ đại đều được xây dựng từ những điều nhỏ bé phải không nào… Nếu đã nói đến một hệ thống gợi ý được tiếp cận theo phương pháp Machine Learning thì chúng ta cần phải xem xét đến ba đặc điểm cơ bản như sau:
 
   + Thứ nhất: Điều đầu tiên cần phải quan tâm đó chính là người dùng (user), hiển nhiên rồi, nếu không có user thì chúng ta biết gợi ý cho ai
-  + Thứ hai : Chúng ta cần phải quan tâm đến mục tin (items) các mục tin này có thể là sản phẩm trên các trang bán hàng, bài hát trên các trang nghe nhạc, một user khác như trên   mạng xã hội hay một bài viết như trên Viblo cuả chúng ta chẳng hạn. Tại sao cần phải quan tâm đến mục tin bởi vì nếu không có mục tin thì chúng ta lấy cái gì mà gợi ý cho        người    dùng. Đúng không các bạn
-  +Thứ ba: Chúng ta cần phải quan tâm đến phản hồi (feedback) của mỗi user lên mục tin đó. Nó có thể là điểm đánh giá, có thể là một chỉ số thể hiện sự quan tâm của user lên       item đó…. Đơn giản là vì chúng ta phải định lượng được các đại lượng này thì mới có thể có cơ sở gợi ý cho người dùng phải không nào
+  + Thứ hai : Chúng ta cần phải quan tâm đến mục tin (items) các mục tin này có thể là sản phẩm trên các trang bán hàng, bài hát trên các trang nghe nhạc, một user khác như trên  mạng xã hội hay một bài viết như trên Viblo cuả chúng ta chẳng hạn. Tại sao cần phải quan tâm đến mục tin bởi vì nếu không có mục tin thì chúng ta lấy cái gì mà gợi ý cho     người    dùng. Đúng không các bạn
+  + Thứ ba: Chúng ta cần phải quan tâm đến phản hồi (feedback) của mỗi user lên mục tin đó. Nó có thể là điểm đánh giá, có thể là một chỉ số thể hiện sự quan tâm của user lên       item đó…. Đơn giản là vì chúng ta phải định lượng được các đại lượng này thì mới có thể có cơ sở gợi ý cho người dùng phải không nào
 
 ## Biểu diễn thông tin bằng ma trận users – items
 
@@ -54,6 +49,7 @@ Khi chúng ta đi mua hàng trên một trang thương mại điện tử, chún
 Hai tình huống trên chính là hai loại hệ thống gợi ý:
 
 Hệ thống gợi ý dựa trên nội dung – Content based recommender systems: tức là hệ thống sẽ quan tâm đến nội dung, đặc điểm của mục tin hiện tại và sau đó gợi ý cho người dùng các mục tin tương tự. Đó chính là trường hợp thứ nhất
+
 Hệ thống gợi ý dựa trên các user – lọc cộng tác – Collaborative filtering recommender systems: tức là hệ thống sẽ phân tích các user có cùng đánh giá, cùng mua mục tin hiện tại. Sau đó tìm ra danh sách các mục tin khác cũng được đánh gía bởi các user này, xếp hạng và gợi ý cho người dùng. Tư tưởng của phương pháp này chính là dựa trên sự tương đồng về sở thích giữa các người dùng để đưa ra các gợi ý.
 
 ![image](https://user-images.githubusercontent.com/64195026/114327102-d99cd880-9b61-11eb-9dc3-da323defbf39.png)
