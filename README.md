@@ -2,13 +2,13 @@
 
 ## Bạn đã bao giờ gặp phải những trường hợp như sau:
 
-Bố mẹ bạn mới sử dụng Facebook và mới chỉ kết bạn với một vài người thân trong gia đình bạn. Tuy nhiên vài hôm sau, Facebook đã tự gợi ý cho hai cụ những người họ hàng hang hốc của bạn mà thậm chí ngay cả bạn cũng không biết ???
+Bạn đang dạo chơi trên một trang thương mại điện tử với mục đích ban đầu là tìm một chiếc quần bò nam. Sau đó một loạt các sản phẩm liên quan đến thời trang nam được gợi ý cho bạn nào là balo, túi xách, thắt lưng…. 
 
-Bạn đang dạo chơi trên một trang thương mại điện tử với mục đích ban đầu là tìm một chiếc quần bò nam. Sau đó một loạt các sản phẩm liên quan đến thời trang nam được gợi ý cho bạn nào là balo, túi xách, thắt lưng…. và sau một hồi lang thang trên đó bạn nhận ra rằng mình đã bị cuốn theo những sản phẩm hay ho kia mà đôi khi còn quên mất luôn mục đích mình vào đây để làm gì ???
+Một buổi chiều cuối tuần ảm đạm, bạn muốn thư giãn hơn bằng cách nghe một bản nhạc bolero cho đúng với tâm trạng, và bạn mở Youtube và tìm kiếm một bản nhạc vàng, nằm xuống giường và thưởng thức âm nhạc, những bài hát tiếp theo sẽ được Youtube thân yêu tự động gợi ý
 
-Một buổi chiều cuối tuần ảm đạm, bạn muốn thư giãn hơn bằng cách nghe một bản nhạc bolero cho đúng với tâm trạng, và bạn mở Youtube và tìm kiếm một bản nhạc vàng, nằm xuống giường và thưởng thức âm nhạc, những bài hát tiếp theo sẽ được Youtube thân yêu tự động gợi ý và tất nhiên rất hiểm khi nó gợi ý một bản nhạc rock cho bạn trong khi bạn đang nghe nhạc vàng phải không nào ???
+Tất cả những điều bạn vừa thấy dều có một điểm chung đó là hệ thống của chúng ta có khả năng tự tìm kiếm và gợi ý những thứ mà có thể chúng ta rất thích nhưng chưa nghĩ đến, hoặc chưa biết đến nó trong thời diểm hiện tại.
 
-Tất cả những điều bạn vừa thấy dều có một điểm chung đó là hệ thống của chúng ta có khả năng tự tìm kiếm và gợi ý những thứ mà có thể chúng ta rất thích nhưng chưa nghĩ đến, hoặc chưa biết đến nó trong thời diểm hiện tại. Đó chính là công việc của Hệ gợi ý – một trong những bài toán khá hay áp dụng trong lĩnh vực Trí tuệ nhân tạo. Và nếu bạn đang tò mò với những câu hỏi trên thì bài viết này sẽ dành cho bạn. Cùng xem cách xây dựng Recommender System nhé!
+Đó chính là công việc của Hệ gợi ý – một trong những bài toán khá hay áp dụng trong lĩnh vực Trí tuệ nhân tạo. Và nếu bạn đang tò mò với những câu hỏi trên thì bài viết này sẽ dành cho bạn. Cùng xem cách xây dựng Recommender System nhé!
 
 ![image](https://user-images.githubusercontent.com/64195026/114326932-42378580-9b61-11eb-95a2-e09975d11c65.png)
 
@@ -28,17 +28,10 @@ Quan tâm đến việc khách hàng yêu thích những sản phẩm nào dựa
 ## Các thành phần cơ bản của một hệ gợi ý
 Như chúng ta đã biết, để làm việc hay xây dựng một hệ thống thông tin mới thì chúng ta cần phải định hình được mình sẽ cần những thành phần gì để tạo ra chúng. Đơn giản là những điều vĩ đại đều được xây dựng từ những điều nhỏ bé phải không nào… Nếu đã nói đến một hệ thống gợi ý được tiếp cận theo phương pháp Machine Learning thì chúng ta cần phải xem xét đến ba đặc điểm cơ bản như sau:
 
-  + Thứ nhất: Điều đầu tiên cần phải quan tâm đó chính là người dùng (user), hiển nhiên rồi, nếu không có user thì chúng ta biết gợi ý cho ai
-  + Thứ hai : Chúng ta cần phải quan tâm đến mục tin (items) các mục tin này có thể là sản phẩm trên các trang bán hàng, bài hát trên các trang nghe nhạc, một user khác như trên  mạng xã hội hay một bài viết như trên Viblo cuả chúng ta chẳng hạn. Tại sao cần phải quan tâm đến mục tin bởi vì nếu không có mục tin thì chúng ta lấy cái gì mà gợi ý cho     người    dùng. Đúng không các bạn
-  + Thứ ba: Chúng ta cần phải quan tâm đến phản hồi (feedback) của mỗi user lên mục tin đó. Nó có thể là điểm đánh giá, có thể là một chỉ số thể hiện sự quan tâm của user lên       item đó…. Đơn giản là vì chúng ta phải định lượng được các đại lượng này thì mới có thể có cơ sở gợi ý cho người dùng phải không nào
+  + Thứ nhất: Điều đầu tiên cần phải quan tâm đó chính là người dùng (user)
+  + Thứ hai : Chúng ta cần phải quan tâm đến items các mục tin này có thể là sản phẩm trên các trang bán hàng, bài hát trên các trang nghe nhạc
+  + Thứ ba: Chúng ta cần phải quan tâm đến phản hồi (feedback) của mỗi user lên items đó. Nó có thể là điểm đánh giá, có thể là một chỉ số thể hiện sự quan tâm của user lên       item đó.
 
-## Biểu diễn thông tin bằng ma trận users – items
-
-Sau khi chúng ta đã thu thập được các thông tin trên của hệ thống bằng một cách nào đó chúng ta cần phải biểu diễn các thông tin đó dưới dạng có thể tính toán được. Một ý tưởng tuyệt vời đó là sử dụng ma trận, một ma trân được tạo ra thể hiện độ thích của từng user lên các item tương ứng được biểu diễn như sau:
-
-![image](https://user-images.githubusercontent.com/64195026/114327075-c12cbe00-9b61-11eb-8078-8842d95d7717.png)
-
- Trong ma trận có những ô có trọng số sẽ thể hiện được mức độ yêu thích của mỗi user lên các item. Mặt khác cũng có những ô còn trống thể hiện user chưa từng tiếp cận được với item. Chính điều này thể hiện vai trò của một hệ gợi ý, đó chính là dựa vào các thông tin được biết trong quá khứ của người dùng, hệ gợi ý sẽ gợi ý cho người dùng đó các thông tin mà người dùng chưa biết. Tức là dự đoán các giá trị tại các ô còn trống trong ma trận trên rồi sắp xếp theo thứ tự độ thích giảm dần để gợi ý cho người dùng.
  
 ## Phân loại hệ thống gợi ý
 
@@ -55,16 +48,29 @@ Hệ thống gợi ý dựa trên các user – lọc cộng tác – Collaborat
 ![image](https://user-images.githubusercontent.com/64195026/114327102-d99cd880-9b61-11eb-9dc3-da323defbf39.png)
 
 ## Vậy chúng ta nên sử dụng phương pháp nào ?
-Có một điều dễ nhận thấy thì phương pháp gợi ý dựa trên nội dung đòi hỏi chúng ta phải thu thập rất nhiều thông tin về các mục tin tương tự . Chính việc xác định xem một mục tin nào là tương tự với mục tin hiện tại đòi hỏi chúng ta phải thu thập và phần tích, xử lý toàn bộ các mục tin trong cơ sở dữ liệu. Tuy nhiên với phương pháp lọc công tác chúng ta không cần quá nhiều thông tin. Đơn giản chỉ là item_id của item hiện tại, các user_id và các feedback trên item đó mà thôi nên thực tế thì phương pháp lọc cộng tác được sử dụng phổ biến hơn để xây dựng các hệ thống gợi ý
+Có một điều dễ nhận thấy thì phương pháp gợi ý dựa trên nội dung đòi hỏi chúng ta phải thu thập rất nhiều thông tin về các mục tin tương tự . Chính việc xác định xem một item nào là tương tự với item hiện tại đòi hỏi chúng ta phải thu thập và phần tích, xử lý toàn bộ các item trong cơ sở dữ liệu.
+
+Tuy nhiên với phương pháp lọc công tác chúng ta không cần quá nhiều thông tin. Đơn giản chỉ là item_id của item hiện tại, các user_id và các feedback trên item đó mà thôi nên thực tế thì phương pháp lọc cộng tác được sử dụng phổ biến hơn để xây dựng các hệ thống gợi ý.
 
 ## Những bước cần làm để xây dựng một hệ thống gợi ý
 ## Thu thập dữ liệu
-Nếu chúng ta đơn giản chỉ quan tâm đến việc rating của user với item thì vấn đề trở nên khá đơn giản, dữ liệu của chúng ta đã có sẵn trong DB. Tuy nhiên tùy vào bài toán cụ thể mà không phải lúc nào những chỉ số của chúng ta là tường mình và có sẵn và chính vì thế chúng ta cần phải có một kế hoạch để thu thập các chỉ số thể hiện mối tương quan này trước khi chúng ta định xây dựng một hệ thống gợi ý. Một vài chỉ số có thể dùng để thay thế điểm rating như sau:
+
+Nếu chúng ta đơn giản chỉ quan tâm đến việc rating của user với item thì vấn đề trở nên khá đơn giản, dữ liệu của chúng ta đã có sẵn trong DB.
+
+Tuy nhiên tùy vào bài toán cụ thể mà không phải lúc nào những chỉ số của chúng ta là tường mình và có sẵn và chính vì thế chúng ta cần phải có một kế hoạch để thu thập các chỉ số thể hiện mối tương quan này trước khi chúng ta định xây dựng một hệ thống gợi ý. Một vài chỉ số có thể dùng để thay thế điểm rating như sau:
 
 Số lần click chuột vào item
 Thời gian trung bình thao tác với item
 …
 Sau quá trình thu thập chúng ta có rất nhiều dữ liệu ở các phiên làm việc khác nhau tương ứng với các thao tác khác nhau của một user đối với item. Sau khi xử lý bằng các xử lý toàn học không đi sâu ở đây, chúng ta sẽ thu được một chỉ số duy nhất giữa một cặp user-item. Việc cần làm tiếp theo đó là chuẩn hóa dữ liệu.
+
+## Biểu diễn thông tin bằng ma trận users – items
+
+Sau khi chúng ta đã thu thập được các thông tin trên của hệ thống bằng một cách nào đó chúng ta cần phải biểu diễn các thông tin đó dưới dạng có thể tính toán được. Một ý tưởng tuyệt vời đó là sử dụng ma trận, một ma trân được tạo ra thể hiện độ thích của từng user lên các item tương ứng được biểu diễn như sau:
+
+![image](https://user-images.githubusercontent.com/64195026/114327075-c12cbe00-9b61-11eb-8078-8842d95d7717.png)
+
+ Trong ma trận có những ô có trọng số sẽ thể hiện được mức độ yêu thích của mỗi user lên các item. Mặt khác cũng có những ô còn trống thể hiện user chưa từng tiếp cận được với item. Chính điều này thể hiện vai trò của một hệ gợi ý, đó chính là dựa vào các thông tin được biết trong quá khứ của người dùng, hệ gợi ý sẽ gợi ý cho người dùng đó các thông tin mà người dùng chưa biết. Tức là dự đoán các giá trị tại các ô còn trống trong ma trận trên rồi sắp xếp theo thứ tự độ thích giảm dần để gợi ý cho người dùng.
 
 ## Chuẩn hóa dữ liệu
 
