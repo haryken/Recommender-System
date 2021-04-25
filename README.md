@@ -29,7 +29,7 @@ Quan tâm đến việc khách hàng yêu thích những sản phẩm nào dựa
 Như chúng ta đã biết, để làm việc hay xây dựng một hệ thống thông tin mới thì chúng ta cần phải định hình được mình sẽ cần những thành phần gì để tạo ra chúng. Đơn giản là những điều vĩ đại đều được xây dựng từ những điều nhỏ bé phải không nào… Nếu đã nói đến một hệ thống gợi ý được tiếp cận theo phương pháp Machine Learning thì chúng ta cần phải xem xét đến ba đặc điểm cơ bản như sau:
 
   + Thứ nhất: Điều đầu tiên cần phải quan tâm đó chính là người dùng (user)
-  + Thứ hai : Chúng ta cần phải quan tâm đến items các mục tin này có thể là sản phẩm trên các trang bán hàng, bài hát trên các trang nghe nhạc
+  + Thứ hai : Chúng ta cần phải quan tâm đến items các items này có thể là sản phẩm trên các trang bán hàng, bài hát trên các trang nghe nhạc
   + Thứ ba: Chúng ta cần phải quan tâm đến phản hồi (feedback) của mỗi user lên items đó. Nó có thể là điểm đánh giá, có thể là một chỉ số thể hiện sự quan tâm của user lên       item đó.
 
  
@@ -41,14 +41,14 @@ Khi chúng ta đi mua hàng trên một trang thương mại điện tử, chún
 
 Hai tình huống trên chính là hai loại hệ thống gợi ý:
 
-Hệ thống gợi ý dựa trên nội dung – Content based recommender systems: tức là hệ thống sẽ quan tâm đến nội dung, đặc điểm của mục tin hiện tại và sau đó gợi ý cho người dùng các mục tin tương tự. Đó chính là trường hợp thứ nhất
+Hệ thống gợi ý dựa trên nội dung – Content based recommender systems: tức là hệ thống sẽ quan tâm đến nội dung, đặc điểm của items hiện tại và sau đó gợi ý cho người dùng các items tương tự. Đó chính là trường hợp thứ nhất
 
-Hệ thống gợi ý dựa trên các user – lọc cộng tác – Collaborative filtering recommender systems: tức là hệ thống sẽ phân tích các user có cùng đánh giá, cùng mua mục tin hiện tại. Sau đó tìm ra danh sách các mục tin khác cũng được đánh gía bởi các user này, xếp hạng và gợi ý cho người dùng. Tư tưởng của phương pháp này chính là dựa trên sự tương đồng về sở thích giữa các người dùng để đưa ra các gợi ý.
+Hệ thống gợi ý dựa trên các user – lọc cộng tác – Collaborative filtering recommender systems: tức là hệ thống sẽ phân tích các user có cùng đánh giá, cùng mua items hiện tại. Sau đó tìm ra danh sách các items khác cũng được đánh gía bởi các user này, xếp hạng và gợi ý cho người dùng. Tư tưởng của phương pháp này chính là dựa trên sự tương đồng về sở thích giữa các người dùng để đưa ra các gợi ý.
 
 ![image](https://user-images.githubusercontent.com/64195026/114327102-d99cd880-9b61-11eb-9dc3-da323defbf39.png)
 
 ## Vậy chúng ta nên sử dụng phương pháp nào ?
-Có một điều dễ nhận thấy thì phương pháp gợi ý dựa trên nội dung đòi hỏi chúng ta phải thu thập rất nhiều thông tin về các mục tin tương tự . Chính việc xác định xem một item nào là tương tự với item hiện tại đòi hỏi chúng ta phải thu thập và phần tích, xử lý toàn bộ các item trong cơ sở dữ liệu.
+Có một điều dễ nhận thấy thì phương pháp gợi ý dựa trên nội dung đòi hỏi chúng ta phải thu thập rất nhiều thông tin về các items tương tự. Chính việc xác định xem một item nào là tương tự với item hiện tại đòi hỏi chúng ta phải thu thập và phần tích, xử lý toàn bộ các item trong cơ sở dữ liệu.
 
 Tuy nhiên với phương pháp lọc công tác chúng ta không cần quá nhiều thông tin. Đơn giản chỉ là item_id của item hiện tại, các user_id và các feedback trên item đó mà thôi nên thực tế thì phương pháp lọc cộng tác được sử dụng phổ biến hơn để xây dựng các hệ thống gợi ý.
 
@@ -76,10 +76,10 @@ Sau khi chúng ta đã thu thập được các thông tin trên của hệ th�
 
 ![image](https://user-images.githubusercontent.com/64195026/114327128-f5a07a00-9b61-11eb-9d8c-0eb5f159b2ab.png)
 
-Ma trận dữ liệu của chúng ta chủ yếu là ma trận thưa tức là số lượng dữ liệu còn trống là rất nhiều, chính vì thế nên chúng ta cần phải chuẩn hóa đống dữ liệu này mới có thể áp dụng các thuật toán học máy trên đó được. Sau khi chuẩn hóa dữ liệu, chúng ta sẽ xây dựng mô hình học máy để tính toán độ tương tự giữa các user. Mình sẽ nói chi tiết phần này trong các bài viết tiếp theo.
+Ma trận dữ liệu của chúng ta chủ yếu là ma trận thưa tức là số lượng dữ liệu còn trống là rất nhiều, chính vì thế nên chúng ta cần phải chuẩn hóa đống dữ liệu này mới có thể áp dụng các thuật toán học máy trên đó được. Sau khi chuẩn hóa dữ liệu, chúng ta sẽ xây dựng mô hình học máy để tính toán độ tương tự giữa các user.
 
 ## Chạy mô hình, lọc ra top N item phù hợp
 Sau khi lựa chọn được mô hình phù hợp chúng ta sẽ tiến hành chạy mô hình đó và lựa chọn ra top N item sử dụng để gợi ý cho người dùng
 
 ## Đánh giá mô hình
-Cũng như các bài toán học máy khác, chúng ta cũng cần đánh giá mô hình dựa trên tập dữ liệu kiểm tra. Tuy nhiên do đặc thù của bài toán sẽ có những phương pháp đánh giá khác nhau. Do phạm vi bài viết quá dài nên hiện tại mình chưa trình bày kĩ ở đây. Hẹn gặp các bạn trong các bài viết tiếp theo
+Cũng như các bài toán học máy khác, chúng ta cũng cần đánh giá mô hình dựa trên tập dữ liệu kiểm tra. Tuy nhiên do đặc thù của bài toán sẽ có những phương pháp đánh giá khác nhau.
